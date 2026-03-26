@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Heritage Modernist | Expert F&B Consultant — 35 Years of European Excellence</title>
+    <meta name="description" content="Expert F&B Consultant with 35 years of operational mastery across Europe. Specializing in strategic consultancy, menu development, and staff training for luxury hospitality."/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #a04100;
+            --primary-container: #ff6b00;
+            --primary-fixed: #ffdbcc;
+            --primary-fixed-dim: #ffb693;
+            --on-primary: #ffffff;
+            --on-primary-container: #572000;
+            --on-primary-fixed: #351000;
+            --surface: #f9f9f7;
+            --surface-container: #eeeeec;
+            --surface-container-high: #e8e8e6;
+            --surface-container-low: #f4f4f2;
+            --surface-container-lowest: #ffffff;
+            --surface-dim: #dadad8;
+            --on-surface: #1a1c1b;
+            --on-surface-variant: #5a4136;
+            --outline: #8e7164;
+            --outline-variant: #e2bfb0;
+            --secondary: #5f5e5e;
+            --tertiary: #0062a1;
+            --error: #ba1a1a;
+            --font-headline: 'Noto Serif', serif;
+            --font-body: 'Manrope', sans-serif;
+            --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--on-surface);
+            background: var(--surface);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: var(--font-headline);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.15;
+            color: var(--on-surface);
+        }
+        .section-title em { font-style: italic; }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(249, 249, 247, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .nav.scrolled {
+            border-bottom-color: var(--primary);
+            box-shadow: 0 4px 40px rgba(26, 28, 27, 0.04);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .nav-logo {
+            font-family: var(--font-headline);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--on-surface);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.4s var(--transition-smooth);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.4s var(--transition-smooth), left 0.4s var(--transition-smooth);
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; left: 0; }
+        .nav-cta {
+            background: var(--primary);
+            color: var(--on-primary) !important;
+            padding: 0.7rem 1.8rem;
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s var(--transition-smooth) !important;
+        }
+        .nav-cta:hover {
+            background: var(--primary-container) !important;
+            transform: scale(1.02);
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--on-surface);
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: var(--surface-container-high);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        .hero-title {
+            font-family: var(--font-headline);
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--on-surface);
+            margin-bottom: 2rem;
+        }
+        .hero-title .accent {
+            color: var(--primary);
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--on-surface-variant);
+            max-width: 500px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--on-primary);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--transition-smooth);
+        }
+        .btn-primary:hover {
+            background: var(--primary-container);
+            transform: scale(1.02);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--primary);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(226, 191, 176, 0.3);
+            transition: all 0.4s var(--transition-smooth);
+        }
+        .btn-secondary:hover {
+            background: var(--surface-container-low);
+            border-color: var(--primary);
+        }
+        .hero-image-wrapper {
+            position: relative;
+        }
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+        .hero-stats {
+            position: absolute;
+            bottom: -1.5rem;
+            left: -2rem;
+            background: var(--surface-container-lowest);
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 20px 60px rgba(26, 28, 27, 0.05);
+        }
+        .hero-stat-number {
+            font-family: var(--font-headline);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+            margin-top: 0.3rem;
+        }
+        .hero-bg-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 35%;
+            height: 100%;
+            background: var(--surface-container-low);
+            z-index: -1;
+            transform: skewX(-8deg) translateX(15%);
+        }
+
+        /* Stats Row under Hero */
+        .stats-row {
+            display: flex;
+            gap: 4rem;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(226, 191, 176, 0.15);
+            margin-top: 3rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: var(--font-headline);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-text {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+            margin-top: 0.3rem;
+        }
+
+        /* ===== ABOUT / EXPERIENCE SECTION ===== */
+        .about {
+            padding: 7rem 0;
+            background: var(--surface-container-low);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--on-surface-variant);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+        .about-quote {
+            font-family: var(--font-headline);
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--primary);
+            border-left: 3px solid var(--primary-container);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline { display: flex; flex-direction: column; gap: 1rem; }
+        .timeline-item {
+            padding: 2rem;
+            background: var(--surface-container-lowest);
+            transition: all 0.4s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--primary-container);
+            transition: height 0.6s var(--transition-smooth);
+        }
+        .timeline-item:hover {
+            background: var(--surface-container-lowest);
+            box-shadow: 0 10px 40px rgba(26, 28, 27, 0.05);
+            transform: translateX(4px);
+        }
+        .timeline-item:hover::before { height: 100%; }
+        .timeline-date {
+            font-family: var(--font-headline);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--on-surface-variant);
+            line-height: 1.6;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 7rem 0;
+            background: var(--surface);
+        }
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .service-card {
+            padding: 2.5rem 2rem;
+            background: var(--surface-container-lowest);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.5s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary-container);
+            opacity: 0;
+            transition: opacity 0.5s var(--transition-smooth);
+            z-index: 0;
+        }
+        .service-card:hover::after { opacity: 1; }
+        .service-card > * { position: relative; z-index: 1; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26, 28, 27, 0.08); }
+        .service-card:hover .service-title,
+        .service-card:hover .service-desc { color: #fff; }
+        .service-card:hover .service-icon-wrapper { background: rgba(255,255,255,0.2); }
+        .service-card:hover .material-symbols-outlined { color: #fff; }
+        .service-icon-wrapper {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: var(--surface-container-low);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.5s var(--transition-smooth);
+        }
+        .service-icon-wrapper .material-symbols-outlined {
+            font-size: 28px;
+            color: var(--primary);
+            transition: color 0.5s var(--transition-smooth);
+        }
+        .service-title {
+            font-family: var(--font-headline);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.5s var(--transition-smooth);
+        }
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--on-surface-variant);
+            line-height: 1.7;
+            transition: color 0.5s var(--transition-smooth);
+        }
+        .service-features {
+            margin-top: 1.2rem;
+            list-style: none;
+            text-align: left;
+            width: 100%;
+        }
+        .service-features li {
+            font-size: 0.75rem;
+            color: var(--on-surface-variant);
+            padding: 0.3rem 0;
+            transition: color 0.5s var(--transition-smooth);
+        }
+        .service-card:hover .service-features li { color: rgba(255,255,255,0.8); }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio {
+            padding: 7rem 0;
+            background: var(--surface);
+        }
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+        .portfolio-filters {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            border: 1px solid rgba(226, 191, 176, 0.2);
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--on-primary);
+            border-color: var(--primary);
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .project-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: var(--surface-container-high);
+            cursor: pointer;
+        }
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.7s var(--transition-smooth);
+        }
+        .project-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.08);
+        }
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%);
+        }
+        .project-content {
+            position: absolute;
+            bottom: 0;
+            padding: 2rem;
+            transform: translateY(10px);
+            transition: transform 0.5s var(--transition-smooth);
+        }
+        .project-card:hover .project-content { transform: translateY(0); }
+        .project-tag {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--primary-fixed);
+        }
+        .project-title {
+            font-family: var(--font-headline);
+            font-size: 1.4rem;
+            color: #fff;
+            margin: 0.5rem 0 0.8rem;
+        }
+        .project-desc {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .project-tags span {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 7rem 0;
+            background: var(--surface-container-lowest);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .contact-info-items { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .contact-info-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--surface-container-low);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info-icon .material-symbols-outlined {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        .contact-info-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+        }
+        .contact-info-value {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--surface-container-low);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-link:hover {
+            background: var(--primary);
+        }
+        .social-link:hover .material-symbols-outlined { color: #fff; }
+        .social-link .material-symbols-outlined {
+            font-size: 18px;
+            color: var(--on-surface-variant);
+            transition: color 0.3s ease;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--surface);
+            padding: 2.5rem 3rem;
+            box-shadow: 0 20px 60px rgba(26, 28, 27, 0.04);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: var(--surface-container-low);
+            border: none;
+            border-bottom: 2px solid var(--outline);
+            padding: 0.8rem 0;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--on-surface);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-bottom-color: var(--primary);
+        }
+        .form-group label {
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            top: -1rem;
+            font-size: 0.6rem;
+            color: var(--primary);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--on-primary);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--transition-smooth);
+        }
+        .submit-btn:hover {
+            background: var(--primary-container);
+            transform: scale(1.01);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--surface-container-high);
+            padding: 4rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .footer-brand {
+            font-family: var(--font-headline);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--on-surface);
+        }
+        .footer-brand p {
+            font-family: var(--font-body);
+            font-style: normal;
+            font-size: 0.8rem;
+            color: var(--on-surface-variant);
+            margin-top: 0.5rem;
+            line-height: 1.6;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+        }
+        .footer-nav-col h4 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--on-surface);
+            margin-bottom: 1rem;
+        }
+        .footer-nav-col a {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .footer-nav-col a:hover { color: var(--primary); }
+        .footer-copy {
+            text-align: right;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--on-surface-variant);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary);
+            color: var(--on-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s var(--transition-smooth);
+            z-index: 99;
+            box-shadow: 0 8px 30px rgba(160, 65, 0, 0.3);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--primary-container);
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-image-wrapper { max-width: 450px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; text-align: center; }
+            .footer-nav { justify-content: center; }
+            .footer-copy { text-align: center; margin-top: 1rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface-container-lowest);
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 20px 40px rgba(26,28,27,0.08);
+            }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-header { flex-direction: column; align-items: flex-start; }
+            .hero { padding-top: 6rem; min-height: auto; }
+            .hero-title { font-size: 2.5rem; }
+            .stats-row { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .hero-stats { display: none; }
+            .hero-bg-accent { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-nav { flex-direction: column; gap: 2rem; }
+        }
+
+        /* Material Symbols */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">The Heritage Modernist</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Experience</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Consultation</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero" id="hero">
+            <div class="hero-inner">
+                <div>
+                    <span class="hero-badge reveal">Established 1989</span>
+                    <h1 class="hero-title reveal reveal-delay-1">
+                        Expert F&B Consultant — <span class="accent">35 Years</span> of Excellence in Europe.
+                    </h1>
+                    <p class="hero-subtitle reveal reveal-delay-2">
+                        Refining the landscape of German and European gastronomy through three decades of operational mastery and visionary leadership.
+                    </p>
+                    <div class="hero-actions reveal reveal-delay-3">
+                        <a href="#contact" class="btn-primary">Begin Your Transformation</a>
+                        <a href="#portfolio" class="btn-secondary">View Heritage</a>
+                    </div>
+                    <!-- Stats Row -->
+                    <div class="stats-row reveal reveal-delay-4">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="35">0</div>
+                            <div class="stat-text">Years of Leadership</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="200">0</div>
+                            <div class="stat-text">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-text">Countries Served</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper reveal reveal-delay-2">
+                    <img class="hero-image" alt="Professional F&B Expert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBePXzURxsK6zi5MOhD4lmvQZhx4Wn58-Uy7n-7yxlMC9v6UQ30c5gtzIusRJS7GtL0eAa8v11ZtEes-3m86Snq_NB4EFxIi1qfV5I0sBHAE-qDuybYGd8accg2Um3XhwhGavtL3wuIWs5ez5eU-UwG8g7j792-1sMBSOrV4M_-Q0B3WnIlRhU8jcsgSn9vHkseE55ZjHTKuT-A3uGxAlDMldCFI6uljyzn-jsUYrLwB9KFqspdA0rBoMyyj9X9RFENwF0Ab_IPAYY"/>
+                    <div class="hero-stats">
+                        <div class="hero-stat-number">35+</div>
+                        <div class="hero-stat-label">Years of European<br/>Industry Leadership</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-bg-accent"></div>
+        </section>
+
+        <!-- ===== ABOUT ME / EXPERIENCE ===== -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div>
+                        <span class="section-label reveal">About Me</span>
+                        <h2 class="section-title reveal reveal-delay-1">
+                            Bridging Heritage<br/>and <em>The Future.</em>
+                        </h2>
+                        <div class="about-text reveal reveal-delay-2">
+                            <p>My journey began in the heart of Germany's culinary scene, evolving through the Michelin-starred kitchens of France to the grand hotel ballrooms of London. For 35 years, I have navigated the complex pulse of the European F&B market.</p>
+                            <p>I specialize in translating traditional craftsmanship into modern operational success. My approach is rooted in the rigorous standards of the German hospitality tradition, blended with a contemporary understanding of global dining trends.</p>
+                        </div>
+                        <blockquote class="about-quote reveal reveal-delay-3">
+                            "Gastronomy is not just service; it is a legacy in motion."
+                        </blockquote>
+                    </div>
+                    <!-- Timeline -->
+                    <div class="timeline">
+                        <div class="timeline-item reveal">
+                            <div class="timeline-date">1989 — 1998</div>
+                            <h4 class="timeline-title">Foundations in Berlin</h4>
+                            <p class="timeline-desc">Apprenticeship and management training in Germany's elite hospitality circles. Building the foundation for a career defined by precision.</p>
+                        </div>
+                        <div class="timeline-item reveal reveal-delay-1">
+                            <div class="timeline-date">1999 — 2012</div>
+                            <h4 class="timeline-title">European Expansion</h4>
+                            <p class="timeline-desc">Directing multi-unit operations across France, Italy, and the Benelux region. Managing 500+ staff across luxury hotel groups.</p>
+                        </div>
+                        <div class="timeline-item reveal reveal-delay-2">
+                            <div class="timeline-date">2013 — Present</div>
+                            <h4 class="timeline-title">Expert Advisory</h4>
+                            <p class="timeline-desc">Strategic consultancy for luxury hotel groups and high-volume concept developments. Trusted by Europe's most prestigious brands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES SECTION ===== -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="services-header">
+                    <span class="section-label reveal">Our Expertise</span>
+                    <h2 class="section-title reveal reveal-delay-1">Pillars of Excellence</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-icon-wrapper">
+                            <span class="material-symbols-outlined">corporate_fare</span>
+                        </div>
+                        <h3 class="service-title">Consultancy</h3>
+                        <p class="service-desc">Strategic market entry and long-term business modeling for the German hospitality sector.</p>
+                        <ul class="service-features">
+                            <li>— Market Analysis</li>
+                            <li>— P&L Optimization</li>
+                            <li>— Growth Strategy</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal reveal-delay-1">
+                        <div class="service-icon-wrapper">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <h3 class="service-title">Operational Mastery</h3>
+                        <p class="service-desc">Streamlining workflows, cost control, and supply chain optimization for maximum ROI.</p>
+                        <ul class="service-features">
+                            <li>— Workflow Optimization</li>
+                            <li>— Supply Chain</li>
+                            <li>— Crisis Management</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal reveal-delay-2">
+                        <div class="service-icon-wrapper">
+                            <span class="material-symbols-outlined">restaurant_menu</span>
+                        </div>
+                        <h3 class="service-title">Menu Curation</h3>
+                        <p class="service-desc">Curating culinary experiences that balance aesthetic prestige with seasonal profitability.</p>
+                        <ul class="service-features">
+                            <li>— Concept Development</li>
+                            <li>— Ingredient Sourcing</li>
+                            <li>— Recipe Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal reveal-delay-3">
+                        <div class="service-icon-wrapper">
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                        <h3 class="service-title">Staff Calibration</h3>
+                        <p class="service-desc">Implementing elite service standards and leadership development for high-performance teams.</p>
+                        <ul class="service-features">
+                            <li>— Service Training</li>
+                            <li>— Cultural Development</li>
+                            <li>— Retention Strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PORTFOLIO SECTION ===== -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="portfolio-header">
+                    <div>
+                        <span class="section-label reveal">Case Studies</span>
+                        <h2 class="section-title reveal reveal-delay-1">A Global Portfolio of Transformation</h2>
+                    </div>
+                    <div class="portfolio-filters reveal reveal-delay-2">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="restaurant">Restaurants</button>
+                        <button class="filter-btn" data-filter="hotel">Hotels</button>
+                        <button class="filter-btn" data-filter="bar">Bars</button>
+                    </div>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="project-card reveal" data-category="bar">
+                        <img alt="Luxury Bar Project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGv8xcXqQN6PMjHXMsIBwGulw14SkZ3c5qG9sn76SPMUeV_-uOPU2FyhXKiFwHWGPcmZaOMuGzBdq9xdXJW_SuFAq7fZHYUrqIGx8Bef6VD5T2dKSdABX_ZWVfmNTljVtb32cNI1wqARiy2yaqQF4wyayowi6nzCYxK03JPS6nxWKlbhmn0G8yvamd7Ul-igRXzTyve--9CbK2Bl24c09sFS_vHpsKHvD3UIkXMVcJoZkAC46mW1L--RjK2rG9q4-i9vGHLSjZPNI"/>
+                        <div class="project-overlay"></div>
+                        <div class="project-content">
+                            <span class="project-tag">Munich, Germany</span>
+                            <h3 class="project-title">The Midnight Atelier</h3>
+                            <p class="project-desc">Complete redesign of high-volume mixology program and luxury service flows. 45% revenue increase.</p>
+                            <div class="project-tags">
+                                <span>Mixology</span>
+                                <span>Luxury Bar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal reveal-delay-1" data-category="restaurant">
+                        <img alt="Fine Dining Project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGTdMnl1wI3eG43gtQFrIydcD5aG8lsdOOtVSI0Ory3XTh-nUOKFqah2NJ6V9ZR_bhCiOqoItGEc20Cp-y6Psu-vbvvHWTmjYOtx8U2ZtEPf_1yzHmPxpzg27kk_C7E7l1SUN6A8ltvEsmgBBdQvLPYdH2kTJqSXgGPwYnh1xIPXGJld99JkN1ede2CMyEAYkJtvWx8_trt8uU_oa9CLS24xCCYsXYENut_bVtn4tgfHrIcMTJjOLVtf5UPAQlFLlrvfpO-KCzNZs"/>
+                        <div class="project-overlay"></div>
+                        <div class="project-content">
+                            <span class="project-tag">Paris, France</span>
+                            <h3 class="project-title">Linden Heritage</h3>
+                            <p class="project-desc">Turnkey consultancy from architectural advisory to Michelin-star kitchen launch in Le Marais.</p>
+                            <div class="project-tags">
+                                <span>Fine Dining</span>
+                                <span>Michelin Star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal reveal-delay-2" data-category="hotel">
+                        <img alt="Grand Hotel Project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkCUgBkKP4Pp1fkX99-p2Ig6nJFOByOBAs6nPvCoBX9Da8Ix4kBqlZ_gYCnlmV_ltep2Rzvf0VyXXIK5LhaOl_TtaSBfuNv2oQsX_bGKFu6nR3Wx7TnSfqSoLKGm9gXPGzJtWNlnzEjqZ_oXITtpigHT4NmFWobC3FSjPINXXMAYOEJQsOgkXPMDRAke5a8_v0bKcfcXIYnaPQcJdMq852APeQUzp3os66wULS_iqWvzJzU5387VDtugmlvnLR-uH04jF9maFn05U"/>
+                        <div class="project-overlay"></div>
+                        <div class="project-content">
+                            <span class="project-tag">Vienna, Austria</span>
+                            <h3 class="project-title">Grand Bellevue</h3>
+                            <p class="project-desc">Optimization of breakfast systems and 24-hour room service for 300+ keys landmark hotel.</p>
+                            <div class="project-tags">
+                                <span>Luxury Hotel</span>
+                                <span>Banqueting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div>
+                        <span class="section-label reveal">Get In Touch</span>
+                        <h2 class="section-title reveal reveal-delay-1">
+                            Let's refine your <em>vision.</em>
+                        </h2>
+                        <p class="reveal reveal-delay-2" style="color: var(--on-surface-variant); margin-top: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                            Available for global selective commissions. Initial consultation includes a preliminary operational audit.
+                        </p>
+                        <div class="contact-info-items reveal reveal-delay-3">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span class="material-symbols-outlined">mail</span>
+                                </div>
+                                <div>
+                                    <div class="contact-info-label">Direct Inquiry</div>
+                                    <div class="contact-info-value">advisory@heritagemodernist.com</div>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                                <div>
+                                    <div class="contact-info-label">Primary Hub</div>
+                                    <div class="contact-info-value">Hamburg, Germany</div>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div>
+                                    <div class="contact-info-label">Availability</div>
+                                    <div class="contact-info-value">Mon — Fri, 9:00 — 18:00 CET</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-links reveal reveal-delay-4">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <span class="material-symbols-outlined">work</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <span class="material-symbols-outlined">photo_camera</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter/X">
+                                <span class="material-symbols-outlined">public</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form reveal reveal-delay-2">
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="name" placeholder=" " required/>
+                                    <label for="name">Full Name</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" placeholder=" " required/>
+                                    <label for="email">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select id="service">
+                                    <option disabled selected value="">Nature of Inquiry</option>
+                                    <option>Operational Audit</option>
+                                    <option>Concept Development</option>
+                                    <option>Executive Coaching</option>
+                                    <option>Menu Engineering</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder=" " rows="4"></textarea>
+                                <label for="message">Your Message</label>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">The Heritage Modernist</div>
+                <p style="font-size: 0.8rem; color: var(--on-surface-variant); margin-top: 0.5rem; line-height: 1.6;">Elevating the standards of global gastronomy through three decades of precision.</p>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-nav-col">
+                    <h4>Navigation</h4>
+                    <a href="#about">Experience</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Connect</h4>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <div class="footer-nav-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-copy">
+                © 2024 The Heritage Modernist.<br/>All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ---- Scroll Reveal Animations ----
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => observer.observe(el));
+
+        // ---- Navbar Scroll Effect ----
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ---- Back to Top ----
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 600);
+        });
+
+        // ---- Hamburger Menu ----
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('mobile-open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('mobile-open');
+            });
+        });
+
+        // ---- Animated Counters ----
+        const counters = document.querySelectorAll('.stat-number[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    let current = 0;
+                    const step = Math.max(1, Math.ceil(target / 60));
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = current + '+';
+                    }, 30);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => counterObserver.observe(c));
+
+        // ---- Portfolio Filter ----
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => { card.style.display = 'none'; }, 400);
+                    }
+                });
+            });
+        });
+
+        // ---- Smooth Active Link Highlighting ----
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + 200;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+                if (link && !link.classList.contains('nav-cta')) {
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        link.style.color = 'var(--primary)';
+                    } else {
+                        link.style.color = '';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
